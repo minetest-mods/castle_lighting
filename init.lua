@@ -8,6 +8,8 @@ minetest.register_alias("castle:chandelier_chain",   "castle_lighting:chandelier
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
+dofile(MP.."/brasier.lua")
+
 minetest.register_node("castle_lighting:light",{
 	drawtype = "glasslike",
 	description = S("Light Block"),
