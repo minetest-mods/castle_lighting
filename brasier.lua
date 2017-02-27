@@ -199,6 +199,12 @@ castle_lighting.register_pillar_brasier = function(material)
 	local composition_def, burn_time, tile, desc = get_material_properties(material)
 	if burn_time > 0 or composition_def.groups.puts_out_fire then return end -- No wooden brasiers, snow brasiers, or ice brasiers, alas.
 	
+	local crossbrace_connectable_groups = {}
+	for group, val in pairs(composition_def.groups) do
+		crossbrace_connectable_groups[group] = val
+	end	
+	crossbrace_connectable_groups.crossbrace_connectable = 1
+	
 	local mod_name = minetest.get_current_modname()
 
 	minetest.register_node(mod_name..":"..material.name.."_pillar_brasier", {
@@ -207,7 +213,7 @@ castle_lighting.register_pillar_brasier = function(material)
 		tiles = tile,
 		paramtype = "light",
 		paramtype2 = "facedir",
-		groups = composition_def.groups,
+		groups = crossbrace_connectable_groups,
 		sounds = composition_def.sounds,
 		
 		node_box = pillar_brasier_nodebox,
