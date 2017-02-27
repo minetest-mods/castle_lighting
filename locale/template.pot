@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-02-26 15:16-0700\n"
+"POT-Creation-Date: 2017-02-26 21:59-0700\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,18 +17,26 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: brasier.lua:50
-msgid "Brasier"
+#: brasier.lua:104
+msgid "Floor Brasier"
 msgstr ""
 
-#: init.lua:15
+#: brasier.lua:151
+msgid "Stonebrick"
+msgstr ""
+
+#: brasier.lua:223
+msgid "@1 Brasier"
+msgstr ""
+
+#: init.lua:17
 msgid "Light Block"
 msgstr ""
 
-#: init.lua:35
+#: init.lua:37
 msgid "Chandelier"
 msgstr ""
 
-#: init.lua:74
+#: init.lua:76
 msgid "Chandelier Chain"
 msgstr ""
