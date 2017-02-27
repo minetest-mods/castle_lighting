@@ -30,16 +30,20 @@ local brasier_selection_box = {
 }
 
 local brasier_burn = function(pos)
+	local pos_above = {x=pos.x, y=pos.y+1, z=pos.z}
+	local node_above = minetest.get_node(pos_above)
+	local timer = minetest.get_node_timer(pos)
+	
+	if timer:is_started() and node_above.name == "fire:permanent_flame" then return end -- already burning, don't burn a new thing.
+	
 	local inv = minetest.get_inventory({type="node", pos=pos})
 	local item = inv:get_stack("fuel", 1)
 	local fuel_burned = minetest.get_craft_result({method="fuel", width=1, items={item:peek_item(1)}}).time
-	local pos_above = {x=pos.x, y=pos.y+1, z=pos.z}
-	local node_above = minetest.get_node(pos_above)
+	
 	if fuel_burned > 0 and (node_above.name == "air" or node_above.name == "fire:permanent_flame") then
 		item:set_count(item:get_count() - 1)
 		inv:set_stack("fuel", 1, item)
-		
-		local timer = minetest.get_node_timer(pos)
+
 		timer:start(fuel_burned * 60) -- one minute of flame per second of burn time, for balance.
 		
 		if node_above.name == "air" then
