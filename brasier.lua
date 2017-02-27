@@ -35,7 +35,7 @@ local brasier_burn = function(pos)
 	local fuel_burned = minetest.get_craft_result({method="fuel", width=1, items={item:peek_item(1)}}).time
 	local pos_above = {x=pos.x, y=pos.y+1, z=pos.z}
 	local node_above = minetest.get_node(pos_above)
-	if fuel_burned > 0 then
+	if fuel_burned > 0 and (node_above.name == "air" or node_above.name == "fire:permanent_flame") then
 		item:set_count(item:get_count() - 1)
 		inv:set_stack("fuel", 1, item)
 		
