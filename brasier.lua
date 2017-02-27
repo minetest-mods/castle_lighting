@@ -129,6 +129,14 @@ minetest.register_craft({
 	}
 })
 
+if minetest.get_modpath("hopper") and hopper ~= nil and hopper.add_container ~= nil then
+	hopper:add_container({
+		{"top", "castle_lighting:brasier_floor", "fuel"},
+		{"bottom", "castle_lighting:brasier_floor", "fuel"},
+		{"side", "castle_lighting:brasier_floor", "fuel"},
+	})
+end
+
 ------------------------------------------------------------------------------------------------------
 -- Masonry brasiers
 
@@ -233,6 +241,14 @@ castle_lighting.register_pillar_brasier = function(material)
 		{material.craft_material,material.craft_material,material.craft_material},
 		},
 	})
+	
+	if minetest.get_modpath("hopper") and hopper ~= nil and hopper.add_container ~= nil then
+		hopper:add_container({
+			{"top", mod_name..":"..material.name.."_pillar_brasier", "fuel"},
+			{"bottom", mod_name..":"..material.name.."_pillar_brasier", "fuel"},
+			{"side", mod_name..":"..material.name.."_pillar_brasier", "fuel"},
+		})
+	end
 end
 
 for _, material in pairs(materials) do
