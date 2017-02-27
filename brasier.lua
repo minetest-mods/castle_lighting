@@ -41,7 +41,6 @@ local brasier_burn = function(pos)
 		
 		local timer = minetest.get_node_timer(pos)
 		timer:start(fuel_burned * 60) -- one minute of flame per second of burn time, for balance.
-		minetest.debug("burned a thing", item:get_name())
 		
 		if node_above.name == "air" then
 			minetest.set_node(pos_above, {name = "fire:permanent_flame"})
