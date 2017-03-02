@@ -3,3 +3,4 @@ intllib?
 fire?
 castle_masonry?
 hopper?
+doc?

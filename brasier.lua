@@ -4,6 +4,9 @@ if not minetest.get_modpath("fire") then return end
 local MP = minetest.get_modpath(minetest.get_current_modname())
 local S, NS = dofile(MP.."/intllib.lua")
 
+local brasier_longdesc = S("A brasier for producing copious amounts of light and heat.")
+local brasier_usagehelp = S("To ignite the brasier place a flammable fuel in its inventory slot. A lump of coal will burn for about half an hour.")
+
 local brasier_nodebox = {
 	type = "fixed",
 	fixed = {
@@ -102,6 +105,8 @@ end
 
 minetest.register_node("castle_lighting:brasier_floor", {
 	description = S("Floor Brasier"),
+	_doc_items_longdesc = brasier_longdesc,
+	_doc_items_usagehelp = brasier_usagehelp,
 	tiles = {
 		"castle_steel.png^(castle_coal_bed.png^[mask:castle_brasier_bed_mask.png)",
 		"castle_steel.png",
@@ -221,6 +226,8 @@ castle_lighting.register_pillar_brasier = function(material)
 	minetest.register_node(mod_name..":"..material.name.."_pillar_brasier", {
 		drawtype = "nodebox",
 		description = S("@1 Brasier", desc),
+		_doc_items_longdesc = brasier_longdesc,
+		_doc_items_usagehelp = brasier_usagehelp,
 		tiles = tile,
 		paramtype = "light",
 		paramtype2 = "facedir",
