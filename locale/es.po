@@ -39,7 +39,7 @@ msgstr "Ladrillo de piedra"
 
 #: brasier.lua:228
 msgid "@1 Brasier"
-msgstr "@1 Brasero"
+msgstr "Brasero de @1"
 
 #: init.lua:17
 msgid "Light Block"
