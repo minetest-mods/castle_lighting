@@ -4,9 +4,20 @@ minetest.register_alias("castle:light",        "castle_lighting:light")
 minetest.register_alias("castle:chandelier",   "castle_lighting:chandelier")
 minetest.register_alias("castle:chandelier_chain",   "castle_lighting:chandelier_chain")
 
--- internationalization boilerplate
 local MP = minetest.get_modpath(minetest.get_current_modname())
-local S, NS = dofile(MP.."/intllib.lua")
+
+-- Used for localization, choose either built-in or intllib.
+
+local S, NS = nil
+
+if (minetest.get_modpath("intllib") == nil) then
+	S = minetest.get_translator("castle_lighting")
+
+else
+	-- internationalization boilerplate
+	S, NS = dofile(MP.."/intllib.lua")
+
+end
 
 castle_lighting = {}
 

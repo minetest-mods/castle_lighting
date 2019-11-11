@@ -1,0 +1,8 @@
+# textdomain:castle_lighting
+
+Floor Brasier=
+Stonebrick=
+@1 Brasier=
+Light Block=
+Chandelier=
+Chandelier Chain=
