@@ -40,7 +40,7 @@ local brasier_burn = function(pos)
 	-- already burning, don't burn a new thing.
 	if timer:is_started() and node_above.name == "fire:permanent_flame" then return end
 
-	local inv = minetest.get_inventory({type="node", pos=pos})
+	local inv = minetest.get_meta(pos):get_inventory()
 	local item = inv:get_stack("fuel", 1)
 	local fuel_burned = minetest.get_craft_result({method="fuel", width=1, items={item:peek_item(1)}}).time
 
